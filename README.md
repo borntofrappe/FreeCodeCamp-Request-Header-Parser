@@ -40,3 +40,7 @@ With this project, I instead decided to bring the FAQ-like design directly in th
 - after a brief delay, a series of messages, in a "bubble" layout are introduced, progressively instructing on the microservice.
 
 The text ought to be snappy, but not exaggerated. Above at all it ought to be concise: it should first of all welcome the user (perhaps with a greeting chosen at random among a few possibilities) and follow up with the particular endpoint and a sample response. Brevity over cleverness.
+
+### Update
+
+The UI making up the homepage of the application, as briefly prefaced in this section, is found in the **Front-End** folder.
