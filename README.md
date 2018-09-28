@@ -44,3 +44,26 @@ The text ought to be snappy, but not exaggerated. Above at all it ought to be co
 ### Update
 
 The UI making up the homepage of the application, as briefly prefaced in this section, is found in the **Front-End** folder.
+
+## Back End
+
+Once the homepage is created, the back-end script needs to handle basic routing through the **express** package. There is little complexity in this sense, with the only hassle being find the exact properties of the request header. As hinted by the project referenced by [freeCodeCamp](https://dandelion-roar.glitch.me/), it is not too hard to find the exact values:
+
+- `req.header["host"]`;
+
+- `req.header["accept-language"]`;
+
+- `req.header["user-agent"]`.
+
+Remember to use [bracket] notation and not .dot notation when the property includes special characters such as `-` hyphens.
+
+### Update
+
+Locally, the `host` property describes local host, but on **[glictch.com](https://glitch.com)**, the IP address is not found with this property. It is instead found within `req.header["x-forwarded-for"]`. Additional research on the voice is required, but this property indeed returns the IP address. However, it returns such an address followed by additional values.
+
+An IP address is represented by four digits, separated by a dot. Something like `159.20.14.100`. In the mentioned property this value appears, but is followed by a `,` comma and additional characters. The `substring()` method can be used to easily retrieve only the required information:
+
+```JS
+let xForwardedFor = req.headers["x-forwarded-for"];
+let ipAddress = xForwardedFor.substring(0, xForwardedFor.indexOf(","));
+```
